@@ -9,17 +9,47 @@
 </head>
 <body>
 <script type="text/x-handlebars">
-    <h2>Welcome to Ember.js</h2>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            {{#link-to 'index' className='navbar-brand'}}EmberOverflow{{/link-to}}
+        </div>
+
+        <ul class="nav navbar-nav">
+            <li>
+                {{#link-to 'about'}}About site{{/link-to}}
+            </li>
+        </ul>
+    </nav>
 
     {{outlet}}
 </script>
 
 <script type="text/x-handlebars" id="index">
-    <ul>
-        {{#each item in model}}
-        <li>{{item}}</li>
-        {{/each}}
-    </ul>
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Welcome to Emberoverflow</h2>
+
+            <ul>
+                {{#each item in model}}
+                <li>{{item}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars" id="about">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>About Emberoverflow</h2>
+
+            <p>
+                Emberoverflow is a question and answer site for programmers and
+                hamsters. We are a little bit different because we are written in
+                Ember.js
+            </p>
+        </div>
+    </div>
 </script>
 
 <script src="js/libs/jquery-1.10.2.js"></script>
