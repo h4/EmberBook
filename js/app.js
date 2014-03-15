@@ -9,3 +9,10 @@ App.IndexRoute = Ember.Route.extend({
     return ['red', 'yellow', 'blue'];
   }
 });
+
+App.IndexController = Ember.Controller.extend({
+    siteTitle: 'Welcome to EmberOverflow',
+    currentTime: function() {
+        return (new Date);
+    }.property()
+});
