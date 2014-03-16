@@ -7,7 +7,8 @@ App.SignInController = Ember.Controller.extend({
             var email = this.get('email');
             var userToLogin = App.User.FIXTURES.findBy('email', email);
 
-            localStorage['currentUser'] = userToLogin.id;
+            localStorage.setItem('currentUser', userToLogin.id);
+            App.set('currentUser', userToLogin.id);
         }
     }
 });
