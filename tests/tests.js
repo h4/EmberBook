@@ -57,3 +57,21 @@ test("Question links on index page lead to questions", function() {
         );
     })
 });
+
+test("user will be able to log in", function() {
+    localStorage.removeItem('currentUser');
+    App.set('currentUser', undefined);
+
+    visit('/sign-in');
+
+    fillIn('.form-control', 'tom@dale.com');
+    click('button');
+
+    andThen(function() {
+        equal(
+            find('p').text(),
+            "You are already signed-in!",
+            "Signed-in message rendered"
+        );
+    })
+});
