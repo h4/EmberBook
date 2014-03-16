@@ -19,13 +19,21 @@ module("Integration tests", {
 });
 
 // QUnit test case
-test("/", function() {
+test("Index page has a title and a list of question", function() {
   // async helper telling the application to go to the '/' route
   visit("/");
 
   // helper waiting the application is idle before running the callback
   andThen(function() {
-    equal(find("h2").text(), "Welcome to Ember.js", "Application header is rendered");
-    equal(find("li").length, 3, "There are three items in the list");
+    equal(
+        find("h2").text(),
+        "Welcome to EmberOverflow",
+        "Application header is rendered"
+    );
+    equal(
+        find("ul:not(.nav) > li").length,
+        2,
+        "There are three items in the list"
+    );
   });
 });
