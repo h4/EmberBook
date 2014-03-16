@@ -33,7 +33,9 @@
             <ul>
                 {{#each}}
                 <li>
-                    {{title}} — asked by {{author}}
+                    {{#link-to 'question' this}}{{title}}{{/link-to}}
+
+                    (asked by {{author}})
                 </li>
                 {{/each}}
             </ul>
@@ -50,6 +52,22 @@
                 Emberoverflow is a question and answer site for programmers and
                 hamsters. We are a little bit different because we are written in
                 Ember.js
+            </p>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars" id="question">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>{{title}}</h2>
+
+            <p>
+                {{question}}
+            </p>
+
+            <p>
+               Asked by {{author}}.
             </p>
         </div>
     </div>
