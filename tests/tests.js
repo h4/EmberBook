@@ -30,10 +30,10 @@ test("Index page has a title and a list of question", function() {
         "Welcome to EmberOverflow",
         "Application header is rendered"
     );
-    equal(
+    notEqual(
         find("ul:not(.nav) > li").length,
-        2,
-        "There are three items in the list"
+        0,
+        "There are questions in the list"
     );
   });
 });
