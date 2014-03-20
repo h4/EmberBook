@@ -2,6 +2,11 @@
 
 App.AskQuestionController = Ember.ArrayController.extend({
     needs: ['application'],
+    sortProperties: ['date'],
+    sortAscending: false,
+    latestQuestions: function() {
+        return this.slice(0,3)
+    }.property('@each'),
     actions: {
         askQuestion: function() {
             var controller = this;
