@@ -15,6 +15,12 @@
         </div>
 
         <ul class="nav navbar-nav">
+            {{#if userSignedIn}}
+            <li>
+                {{#link-to 'ask-question'}}Ask question{{/link-to}}
+            </li>
+            {{/if}}
+
             <li>
                 {{#link-to 'about'}}About site{{/link-to}}
             </li>
@@ -101,10 +107,50 @@
                         placeholder="Enter your email address"
                         }}
 
-                        <button class="btn btn-summary" type="submit">Sign In</button>
                     </div>
+                    <button class="btn btn-summary" type="submit">Sign In</button>
                 </form>
             {{/if}}
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars" id="ask-question">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Ask New Question</h2>
+
+            <form {{action askQuestion on="submit"}}>
+                <div class="form-group">
+                    <label for="title">Question title</label>
+
+                    {{
+                    input id="title"
+                    value=title
+                    classNames="form-control"
+                    placeholder="Give your question an accurate name"
+                    }}
+                </div>
+
+                <div class="form-group">
+                    <label for="question">Question</label>
+
+                    {{
+                    textarea id="question"
+                    value=question
+                    classNames="form-control"
+                    placeholder="Describe your problem in an much details as possible"
+                    }}
+                </div>
+
+                {{#if question}}
+                <div class="form-group">
+                    <p>Question preview:</p>
+                    <p>{{question}}</p>
+                </div>
+                {{/if}}
+
+                <button class="btn btn-summary" type="submit">Ask Question!</button>
         </div>
     </div>
 </script>

@@ -11,5 +11,6 @@ App.Router.map(function () {
     this.resource('question', {
         path: '/:question_id'
     });
+    this.route('ask-question');
     this.route('sign-in');
 });
