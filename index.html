@@ -120,7 +120,7 @@
         <div class="col-md-8">
             <h2>Ask New Question</h2>
 
-            <form {{action askQuestion on="submit"}}>
+            <form {{action "askQuestion" on="submit"}}>
                 <div class="form-group">
                     <label for="title">Question title</label>
 
@@ -167,6 +167,7 @@
 <script src="js/fixtures/user_fixtures.js"></script>
 <script src="js/routes/application_routes.js"></script>
 <script src="js/controllers/application_controllers.js"></script>
+<script src="js/controllers/question_controllers.js"></script>
 <script src="js/controllers/sign_in_controller.js"></script>
 <!-- to activate the test runner, add the "?test" query string parameter -->
 <script src="tests/runner.js"></script>
