@@ -85,7 +85,7 @@
             </p>
 
             <p>
-               Asked by {{author}}.
+               Asked by {{author.fullName}}.
             </p>
         </div>
     </div>
@@ -158,7 +158,7 @@
             {{#each latestQuestions}}
             <div class="panel panel-default">
                 <div class="panel-body">
-                    {{#link-to 'question'}}{{title}}{{/link-to}}
+                    {{#link-to 'question' this}}{{title}}{{/link-to}}
                     {{question}}<br>
                     - {{author.fullName}}
                 </div>
