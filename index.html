@@ -60,7 +60,9 @@
 <script type="text/x-handlebars" id="components/question-preview">
     {{#link-to 'question' question}}{{question.title}}{{/link-to}}
 
+    {{#if hasAnswers}}
     <span class="label label-default">{{answersCount}} {{pluralForm}}</span>
+    {{/if}}
 
     (asked by {{question.author.fullName}})
 </script>
