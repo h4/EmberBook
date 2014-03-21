@@ -90,13 +90,35 @@
         <div class="col-md-8">
             <h2>{{title}}</h2>
 
+            {{#if isEditing}}
+            <form {{action 'submitEdits' on='submit'}}>
+                <div class="form-group">
+                    <label for="title">Question</label>
+                    {{
+                    textarea id="question"
+                    value=question
+                    classNames="form-control"
+                    placeholder="Describe your problem in an much details as possible"
+                    }}
+                </div>
+
+                <button class="btn btn-primary">Update question</button>
+            </form>
+            {{else}}
             <p>
                 {{question}}
             </p>
+            {{/if}}
 
             <p>
                Asked by {{author.fullName}}.
             </p>
+
+            {{#if canEditQuestion}}
+            <p>
+                <a href="#" {{action 'toggleEditQuestion'}}>Edit question</a>
+            </p>
+            {{/if}}
         </div>
     </div>
 

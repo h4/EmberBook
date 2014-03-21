@@ -17,7 +17,22 @@ App.QuestionsController = Ember.ArrayController.extend({
 });
 
 App.QuestionController = Ember.ObjectController.extend(App.SetAuthorMixin, {
+    isEditing: false,
+
+    canEditQuestion: function() {
+        return this.get('author.id') == App.currentUser;
+    }.property('model'),
+
     actions: {
+        toggleEditQuestion: function() {
+            this.toggleProperty('isEditing');
+        },
+
+        submitEdits: function() {
+            this.toggleProperty('isEditing');
+            this.get('model').save();
+        },
+
         answerQuestion: function() {
             var controller = this;
             var answer = this.store.createRecord('answer', {
