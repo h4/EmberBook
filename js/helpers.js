@@ -1,5 +1,5 @@
 "use strict";
 
-Ember.Handlebars.registerBoundHelper('currentDate', function() {
-
+Ember.Handlebars.registerBoundHelper('currentDate', function(format) {
+    return moment().format(format);
 });
