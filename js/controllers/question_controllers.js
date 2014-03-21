@@ -9,6 +9,13 @@ App.SetAuthorMixin = Ember.Mixin.create({
     }
 });
 
+App.QuestionsController = Ember.ArrayController.extend({
+    siteTitle: 'Welcome to EmberOverflow',
+    currentTime: function () {
+        return (new Date);
+    }.property()
+});
+
 App.QuestionController = Ember.ObjectController.extend(App.SetAuthorMixin, {
     actions: {
         answerQuestion: function() {
