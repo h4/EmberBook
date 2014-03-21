@@ -50,15 +50,17 @@
 
             <ul>
                 {{#each}}
-                <li>
-                    {{#link-to 'question' this}}{{title}}{{/link-to}}
-
-                    (asked by {{author.fullName}})
-                </li>
+                    {{question-preview question=this tagName="li"}}
                 {{/each}}
             </ul>
         </div>
     </div>
+</script>
+
+<script type="text/x-handlebars" id="components/question-preview">
+        {{#link-to 'question' question}}{{question.title}}{{/link-to}}
+
+        (asked by {{question.author.fullName}})
 </script>
 
 <script type="text/x-handlebars" id="about">
