@@ -6,7 +6,8 @@ App.Question.FIXTURES = [
         title: 'How do I feed hamster?',
         author: 201,
         date: '2013-01-01T12:00:00',
-        question: 'Tomster cant eat using knife and a fork because his hands are too small.'
+        question: 'Tomster cant eat using knife and a fork because his hands are too small.',
+        answers: [301]
     },
     {
         id: 102,
