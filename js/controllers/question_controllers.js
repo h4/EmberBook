@@ -1,7 +1,15 @@
 "use strict";
 
-App.QuestionController = Ember.ObjectController.extend({
+App.SetAuthorMixin = Ember.Mixin.create({
     needs: ['application'],
+    setAuthor: function(object) {
+        this.get('controllers.application.signedInUser').then(function(user) {
+            object.set('user', user);
+        });
+    }
+});
+
+App.QuestionController = Ember.ObjectController.extend(App.SetAuthorMixin, {
     actions: {
         answerQuestion: function() {
             var controller = this;
@@ -11,9 +19,7 @@ App.QuestionController = Ember.ObjectController.extend({
                 date: new Date()
             });
 
-            this.get('controllers.application.signedInUser').then(function(user) {
-                answer.set('user', user);
-            });
+            this.setAuthor(answer);
 
             answer.save().then(function(answer) {
                 controller.get('model.answers').addObject(answer);
@@ -25,8 +31,7 @@ App.QuestionController = Ember.ObjectController.extend({
     }
 });
 
-App.AskQuestionController = Ember.ArrayController.extend({
-    needs: ['application'],
+App.AskQuestionController = Ember.ArrayController.extend(App.SetAuthorMixin, {
     sortProperties: ['date'],
     sortAscending: false,
     latestQuestions: function() {
@@ -41,9 +46,7 @@ App.AskQuestionController = Ember.ArrayController.extend({
                 date: new Date()
             });
 
-            this.get('controllers.application.signedInUser').then(function(user) {
-                question.set('author', user);
-            });
+            this.setAuthor(question);
 
             question.save().then(function(question) {
                 controller.setProperties({
