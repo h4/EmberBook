@@ -1,6 +1,8 @@
 "use strict";
 
 App.QuestionPreviewComponent = Ember.Component.extend({
+    tagName: 'li',
+
     answersCount: Ember.computed.alias('question.answers.length'),
     pluralForm: function() {
         var answers = this.get('answersCount');
