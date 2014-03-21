@@ -1,5 +1,5 @@
 App = Ember.Application.create({
-    currentUser: localStorage.getItem('curentUser')
+    currentUser: localStorage.getItem('currentUser')
 });
 
 App.Store = DS.Store.extend({
