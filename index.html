@@ -102,22 +102,26 @@
 
     <hr/>
 
+    {{view App.AnswerFormView}}
+</script>
+
+<script type="text/x-handlebars" id="answer_form">
     <div class="row">
         <div class="col-md-8">
             <h4>Submit your answer:</h4>
 
             <form {{action 'answerQuestion' on="submit"}}>
-                <div class="form-group">
-                    {{
-                    textarea id="answer"
-                    value=answer
-                    classNames="form-control"
-                    }}
-                </div>
+            <div class="form-group">
+                {{
+                textarea id="answer"
+                value=answer
+                classNames="form-control"
+                }}
+            </div>
 
-                <button class="btn btn-primary" type="submit">
-                    Submit
-                </button>
+            <button class="btn btn-primary" type="submit">
+                Submit
+            </button>
             </form>
         </div>
     </div>
@@ -238,6 +242,7 @@
 <script src="js/controllers/question_controllers.js"></script>
 <script src="js/controllers/sign_in_controller.js"></script>
 <script src="js/components/question_component.js"></script>
+<script src="js/views/answer_view.js"></script>
 <!-- to activate the test runner, add the "?test" query string parameter -->
 <script src="tests/runner.js"></script>
 </body>
